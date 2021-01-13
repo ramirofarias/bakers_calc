@@ -65,7 +65,7 @@ function calcularPeso(){
         if(pesoHarina.value < 1 || pesoHarina.value === ""){
             document.getElementById(`peso${i}`).value === "";
         }
-        else document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) * 100) / 100
+        else document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) / 100)
 
     }
 }
@@ -75,7 +75,7 @@ function calcularPorcentaje(){
         if(pesoHarina.value < 1 || pesoHarina.value === ""){
             document.getElementById(`porcentaje${i}`).value === "";
         }
-        else document.getElementById(`porcentaje${i}`).value = Math.round(((document.getElementById(`peso${i}`).value / pesoHarina.value)) * 100) / 100;
+        else document.getElementById(`porcentaje${i}`).value = (((document.getElementById(`peso${i}`).value / pesoHarina.value)) * 100).toFixed(2);
 
     }
 }
