@@ -1,6 +1,8 @@
 const pesoHarina = document.getElementById('pesoHarina');
 const tabla = document.querySelector('table');
 const botonAñadir = document.getElementById('añadirIngrediente');
+const total = document.getElementById('total');
+let suma = 0;
 let id = 0;
 let ingredientes = [];
 
@@ -55,8 +57,10 @@ function añadirIngrediente(){
     nuevoPeso.addEventListener("keyup", actualizarDatos)
     nuevoPorcentaje.addEventListener("keyup", actualizarDatos)
     nuevoPeso.addEventListener("keyup", calcularPorcentaje)
+    nuevoPeso.addEventListener("keyup", calcularPesoTotal)
     nuevoPorcentaje.addEventListener("keyup", calcularPeso)
-    botonDelete.addEventListener("click", onDeleteRow)
+
+    botonDelete.addEventListener("click", eliminarFila)
 
     crearObjeto();
     id++
@@ -64,7 +68,7 @@ function añadirIngrediente(){
 
 function actualizarDatos(){
     for(let i = 0; i<ingredientes.length; i++){
-        if(!ingredientes[i] || !document.getElementById(`ingrediente${i}`).value) continue;
+        if(!ingredientes[i]) continue;
         else{
         ingredientes[i].nombre = document.getElementById(`ingrediente${i}`).value
         ingredientes[i].peso = document.getElementById(`peso${i}`).value
@@ -77,8 +81,15 @@ function calcularPeso(){
         if(!ingredientes[i]) continue;
         else{
              document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) / 100)
-
     }}
+    
+}
+
+function calcularPesoTotal(){
+    let notNull = ingredientes.filter((a) => a !== null).filter((a) => !(typeof a.peso === "number"));
+    total.innerText =  notNull.reduce(function(prev, cur) {
+        return parseInt(prev) + parseInt(cur.peso);
+      }, 0) + parseInt(pesoHarina.value);
 }
 
 function calcularPorcentaje(){
@@ -89,19 +100,20 @@ function calcularPorcentaje(){
             document.getElementById(`porcentaje${i}`).value === "";
         }
         else document.getElementById(`porcentaje${i}`).value = (((document.getElementById(`peso${i}`).value / pesoHarina.value)) * 100).toFixed(2);
-    }
+        }
     }
 }
     
-function onDeleteRow(e) {
-    if (!e.target.classList.contains("botonDelete")) {
+function eliminarFila(evento) {
+    if (!evento.target.classList.contains("botonDelete")) {
       return;
     }
 
-    const btn = e.target;
+    const btn = evento.target;
     let id = btn.closest("tr").id
     ingredientes[id] = null;
     btn.closest("tr").remove();
+    calcularPesoTotal()
   }
 
 pesoHarina.addEventListener('keyup', actualizarDatos);
