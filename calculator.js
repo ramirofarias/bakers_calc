@@ -74,19 +74,16 @@ function actualizarDatos(){
 
 function calcularPeso(){
     for(let i = 0; i<ingredientes.length; i++){
-        if(!ingredientes[i] || !document.getElementById(`peso${i}`).value ||!document.getElementById(`peso${i}`).value ) continue;
+        if(!ingredientes[i]) continue;
         else{
-        if(pesoHarina.value < 1 || pesoHarina.value === ""){
-            document.getElementById(`peso${i}`).value === "";
-        }
-        else document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) / 100)
+             document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) / 100)
 
     }}
 }
 
 function calcularPorcentaje(){
     for(let i = 0; i<ingredientes.length; i++){
-        if(!ingredientes[i] || !document.getElementById(`peso${i}`).value ||!document.getElementById(`peso${i}`).value ) continue;
+        if(!ingredientes[i]) continue;
         else{
         if(pesoHarina.value < 1 || pesoHarina.value === ""){
             document.getElementById(`porcentaje${i}`).value === "";
