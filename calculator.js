@@ -47,36 +47,34 @@ function añadirIngrediente(){
     let celda2 = nuevaFila.insertCell();
     let celda3 = nuevaFila.insertCell();
 
-    celda1.appendChild(nuevoIngrediente)
-    celda2.appendChild(nuevoPeso)
-    celda3.appendChild(nuevoPorcentaje)
+    celda1.appendChild(nuevoIngrediente);
+    celda2.appendChild(nuevoPeso);
+    celda3.appendChild(nuevoPorcentaje);
     celda3.appendChild(span);
-    celda3.appendChild(botonDelete)
-    ;
-    nuevoIngrediente.addEventListener("keyup", actualizarDatos)
-    nuevoPeso.addEventListener("keyup", actualizarDatos)
-    nuevoPorcentaje.addEventListener("keyup", actualizarDatos)
-    nuevoPeso.addEventListener("keyup", calcularPorcentaje)
-    nuevoPeso.addEventListener("keyup", calcularPesoTotal)
-    nuevoPorcentaje.addEventListener("keyup", calcularPeso)
-
-    botonDelete.addEventListener("click", eliminarFila)
-
+    celda3.appendChild(botonDelete);
+    
+    nuevoIngrediente.addEventListener("keyup", actualizarDatos);
+    nuevoPeso.addEventListener("keyup", actualizarDatos);
+    nuevoPorcentaje.addEventListener("keyup", actualizarDatos);
+    nuevoPeso.addEventListener("keyup", calcularPorcentaje);
+    nuevoPeso.addEventListener("keyup", calcularPesoTotal);
+    nuevoPorcentaje.addEventListener("keyup", calcularPeso);
+    botonDelete.addEventListener("click", eliminarFila);
     crearObjeto();
-    id++
+    id++;
 }
 
 function actualizarDatos(){
     for(let i = 0; i<ingredientes.length; i++){
         if(!ingredientes[i]) continue;
         else{
-        ingredientes[i].nombre = document.getElementById(`ingrediente${i}`).value
+        ingredientes[i].nombre = document.getElementById(`ingrediente${i}`).value;
             if(document.getElementById(`peso${i}`).value === ""){
                 ingredientes[i].peso = 0;
             }
             else ingredientes[i].peso = document.getElementById(`peso${i}`).value
-                ingredientes[i].porcentaje = document.getElementById(`porcentaje${i}`).value;
-    }
+                 ingredientes[i].porcentaje = document.getElementById(`porcentaje${i}`).value;
+        }
     }
 }
 
@@ -92,9 +90,9 @@ function calcularPeso(){
 
 function calcularPesoTotal(){
     let notNull = ingredientes.filter((a) => a !== null);
-    total.innerText =  notNull.reduce(function(prev, cur) {
-        return parseInt(prev) + parseInt(cur.peso);
-      }, 0) + parseInt(pesoHarina.value);
+    pesoHarina.value === "" ? 
+        total.innerText = notNull.reduce((prev, cur) => parseInt(prev) + parseInt(cur.peso), 0)
+        : total.innerText =  notNull.reduce((prev, cur) => parseInt(prev) + parseInt(cur.peso), 0) + parseInt(pesoHarina.value);
 }
 
 function calcularPorcentaje(){
