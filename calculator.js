@@ -59,6 +59,7 @@ function añadirIngrediente(){
     nuevoPeso.addEventListener("keyup", calcularPorcentaje);
     nuevoPeso.addEventListener("keyup", calcularPesoTotal);
     nuevoPorcentaje.addEventListener("keyup", calcularPeso);
+    nuevoPorcentaje.addEventListener("keyup", calcularPesoTotal);
     botonDelete.addEventListener("click", eliminarFila);
     crearObjeto();
     id++;
@@ -122,5 +123,4 @@ function eliminarFila(evento) {
 pesoHarina.addEventListener('keyup', actualizarDatos);
 pesoHarina.addEventListener('keyup', calcularPeso);
 pesoHarina.addEventListener('keyup', calcularPesoTotal);
-pesoHarina.addEventListener('keyup', calcularPorcentaje);
 botonAñadir.addEventListener('click', añadirIngrediente);
