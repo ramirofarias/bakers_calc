@@ -13,7 +13,7 @@ function Ingrediente(nombre, peso, porcentaje){
 }
 
 function crearObjeto(){
-    var nuevoObj = new Ingrediente("prueba", "prueba1", "prueba2");
+    var nuevoObj = new Ingrediente("prueba", 0, 0);
     ingredientes.push(nuevoObj);
 }
 
@@ -71,8 +71,12 @@ function actualizarDatos(){
         if(!ingredientes[i]) continue;
         else{
         ingredientes[i].nombre = document.getElementById(`ingrediente${i}`).value
-        ingredientes[i].peso = document.getElementById(`peso${i}`).value
-        ingredientes[i].porcentaje = document.getElementById(`porcentaje${i}`).value;}
+            if(document.getElementById(`peso${i}`).value === ""){
+                ingredientes[i].peso = 0;
+            }
+            else ingredientes[i].peso = document.getElementById(`peso${i}`).value
+                ingredientes[i].porcentaje = document.getElementById(`porcentaje${i}`).value;
+    }
     }
 }
 
@@ -81,12 +85,13 @@ function calcularPeso(){
         if(!ingredientes[i]) continue;
         else{
              document.getElementById(`peso${i}`).value = Math.round(((document.getElementById(`porcentaje${i}`).value * pesoHarina.value)) / 100)
-    }}
+         }
+    }
     
 }
 
 function calcularPesoTotal(){
-    let notNull = ingredientes.filter((a) => a !== null).filter((a) => !(typeof a.peso === "number"));
+    let notNull = ingredientes.filter((a) => a !== null);
     total.innerText =  notNull.reduce(function(prev, cur) {
         return parseInt(prev) + parseInt(cur.peso);
       }, 0) + parseInt(pesoHarina.value);
@@ -118,5 +123,6 @@ function eliminarFila(evento) {
 
 pesoHarina.addEventListener('keyup', actualizarDatos);
 pesoHarina.addEventListener('keyup', calcularPeso);
+pesoHarina.addEventListener('keyup', calcularPesoTotal);
 pesoHarina.addEventListener('keyup', calcularPorcentaje);
 botonAñadir.addEventListener('click', añadirIngrediente);
