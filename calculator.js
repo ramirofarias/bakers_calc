@@ -2,6 +2,7 @@ const pesoHarina = document.getElementById('pesoHarina');
 const tabla = document.querySelector('table');
 const botonAñadir = document.getElementById('añadirIngrediente');
 const total = document.getElementById('total');
+const botonHarina = document.getElementById('añadirHarina')
 let suma = 0;
 let id = 0;
 let ingredientes = [];
@@ -22,6 +23,7 @@ function añadirIngrediente(){
         nuevoIngrediente.id = `ingrediente${id}`;
         nuevoIngrediente.placeholder = "Ingredient";
 
+
     let nuevoPeso = document.createElement("input");
         nuevoPeso.id = `peso${id}`;
         nuevoPeso.placeholder = "Weight";
@@ -35,7 +37,7 @@ function añadirIngrediente(){
     let span = document.createElement("span");
         span.innerText = "%";
 
-    var botonDelete = document.createElement("button");
+    let botonDelete = document.createElement("button");
         botonDelete.innerText = "X";
         botonDelete.className = "botonDelete";
         botonDelete.id = `botonDelete${id}`;
@@ -67,6 +69,38 @@ function añadirIngrediente(){
     crearObjeto();
     id++;
 }
+
+function añadirHarina(){
+    let nuevaHarina = document.createElement("input");
+        nuevaHarina.id = `nuevaHarina${id}`;
+        nuevaHarina.placeholder = `Harina`;
+
+    let nuevaHarinaPeso = document.createElement("input");
+        nuevaHarinaPeso.id = `nuevaHarinaPeso${id}`;
+        nuevaHarinaPeso.placeholder = `Peso`;
+
+    let nuevaHarinaPorcentaje = document.createElement("input");
+        nuevaHarinaPorcentaje.id = `nuevaHarinaPorcentaje${id}`;
+        nuevaHarinaPorcentaje.placeholder = `%`;
+
+    let nuevaFila = tabla.insertRow();
+    
+    let botonDelete = document.createElement("button");
+        botonDelete.innerText = "X";
+        botonDelete.className = "botonDelete";
+        botonDelete.id = `botonDelete${id}`;
+
+    let celda1 = nuevaFila.insertCell();
+    let celda2 = nuevaFila.insertCell();
+    let celda3 = nuevaFila.insertCell();
+
+    celda1.appendChild(nuevaHarina);
+    celda2.appendChild(nuevaHarinaPeso);
+    celda3.appendChild(nuevaHarinaPorcentaje);
+    celda3.appendChild(botonDelete);
+    botonDelete.addEventListener("click", eliminarFila);
+}
+
 
 function actualizarDatos(){
     for(let i = 0; i<ingredientes.length; i++){
@@ -123,5 +157,5 @@ function eliminarFila(evento) {
     calcularPesoTotal()
   }
 
-
+botonHarina.addEventListener('click', añadirHarina)
 botonAñadir.addEventListener('click', añadirIngrediente);
