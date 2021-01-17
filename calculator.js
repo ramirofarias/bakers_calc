@@ -21,15 +21,19 @@ function añadirIngrediente(){
     let nuevoIngrediente = document.createElement("input");
         nuevoIngrediente.id = `ingrediente${id}`;
         nuevoIngrediente.placeholder = "Ingredient";
-
+        nuevoIngrediente.className = "validate";
+        nuevoIngrediente.type = "text"
+        
     let nuevoPeso = document.createElement("input");
         nuevoPeso.id = `peso${id}`;
         nuevoPeso.placeholder = "Weight";
+        nuevoPeso.className = "validate";
         nuevoPeso.type ="number";
 
     let nuevoPorcentaje = document.createElement("input");
         nuevoPorcentaje.id = `porcentaje${id}`;
         nuevoPorcentaje.placeholder = "%";
+        nuevoPorcentaje.className = "validate";
         nuevoPorcentaje.type ="number";
 
     let span = document.createElement("span");
@@ -37,7 +41,7 @@ function añadirIngrediente(){
 
     var botonDelete = document.createElement("button");
         botonDelete.innerText = "X";
-        botonDelete.className = "botonDelete";
+        botonDelete.className = "botonDelete float-right btn-small waves-effect waves-light red darken-3";
         botonDelete.id = `botonDelete${id}`;
 
     let nuevaFila = tabla.insertRow();
