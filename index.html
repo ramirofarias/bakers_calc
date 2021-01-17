@@ -14,45 +14,49 @@
     <title>Bread Calculator</title>
 </head>
 <body>
-  <div class="container">
-    <h3>Baker Calc</h3>
-
-    <div class="col">
-    <div class="row">
-    <table class="highlight z-depth-2" id="tabla">
-        <thead>
-          <tr>
-            <th>Ingredients</th>
-            <th class="w-10">Weight</th>
-            <th class="w-10">Baker's percentage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="form-control" name="" id="Harina" value="Flour" readonly></td>
-            <td><input type="number" class="form-control" name="" id="pesoHarina"></td>
-            <td><input type="number" class="form-control" name="" id="porcentajeHarina" value="100" readonly></td>
-          </tr>
-        </tbody>
-      </table>
+  <main>
+    <div class="container">
+      <h3>Baker's Calc</h3>
+      <table class="highlight z-depth-2" id="tabla">
+          <thead>
+            <tr class=>
+              <th>Ingredients</th>
+              <th class="w-10">Weight</th>
+              <th class="w-10">Baker's percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" class="form-control" name="" id="Harina" value="Flour" readonly></td>
+              <td><input type="number" class="form-control" name="" id="pesoHarina"></td>
+              <td><input type="number" class="form-control" name="" id="porcentajeHarina" value="100" readonly></td>
+            </tr>
+          </tbody>
+        </table>
+      <b>
+        <span class="total-weight">Total weight:</span>
+        <span class="total-weight" id="total"></span></b>
+        <br>
+      <button class="añadir-ingrediente btn-large waves-effect waves-dark green" id="añadirIngrediente">
+        Add ingredient
+      </button>
+    <div class="how-to">
+      <p><b>How to use:</b></p>
+      <ul>
+        <li>Add the ingredients.</li>
+        <li>Add the weight of the ingredients, and it will tell you the percentage relative to the flour: the <i>baker's percentage</i>. Or...</li>
+        <li>Add the baker's percentage, and it will tell you the weight of the ingredients.</li>
+        <li>Change the amount of flour to scale the recipe.</li>
+      </ul>
     </div>
-      <span class="total-weight">Total weight:</span>
-      <span class="total-weight" id="total"></span>
-      <br>
-    <button class="añadir-ingrediente btn-small waves-effect waves-dark green" id="añadirIngrediente">
-      Add ingredient
-    </button>
   </div>
-  <p>How to use:</p>
-  <ul>
-    <li>Add the ingredients.</li>
-    <li>Add the weight of the ingredients, and it will tell you the percentage relative to the flour, the <i>baker's percentage</i>. Or...</li>
-    <li>Add the baker's percentage, and it will tell you the weight of the ingredients.</li>
-    <li>Change the amount of flour to scale the recipe.</li>
-  </ul>
-  </div>
+  </main>
+  <footer class="page-footer grey lighten-2">
+    <div class="footer-copyright grey lighten-2"></div>
+  </footer>
 
-    <script src="calculator.js"></script>
-    
+  
+  <script src="calculator.js"></script>
 </body>
+
 </html>
