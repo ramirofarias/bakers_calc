@@ -1,7 +1,7 @@
 body {
   font-family: "Lato", sans-serif !important;
   background-color: rgb(236, 236, 236) !important;
-  font-size: 16pt !important;
+  font-size: 16px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -15,7 +15,6 @@ table {
   table-layout: auto;
   margin: 4rem 0 2rem 0 !important;
   border-radius: 5px;
-  width: 100% !important;
 }
 
 footer {
