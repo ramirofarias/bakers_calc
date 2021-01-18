@@ -140,7 +140,7 @@ input[type="text"] {
   }
 
   input[type="number"].porcentaje {
-    max-width: 75px;
+    max-width: 50px;
   }
 
   footer {
