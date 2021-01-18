@@ -38,7 +38,7 @@ function añadirIngrediente(){
 
     let span = document.createElement("span");
         span.innerText = "%";
-        span.className = "%"
+        span.className = "porcentaje-span"
 
     let botonDelete = document.createElement("button");
         botonDelete.innerText = "X";
@@ -54,10 +54,11 @@ function añadirIngrediente(){
 
     celda1.appendChild(nuevoIngrediente);
     celda2.appendChild(nuevoPeso);
-    celda3.appendChild(nuevoPorcentaje);
-    celda3.appendChild(span);
     celda3.appendChild(botonDelete);
+    // celda3.appendChild(span);
+    celda3.appendChild(nuevoPorcentaje);
     
+
     nuevoIngrediente.addEventListener("keyup", actualizarDatos);
     nuevoPeso.addEventListener("keyup", actualizarDatos);
     nuevoPorcentaje.addEventListener("keyup", actualizarDatos);
@@ -111,7 +112,7 @@ function calcularPorcentaje(){
         if(pesoHarina.value < 1 || pesoHarina.value === ""){
             document.getElementById(`porcentaje${i}`).value === "";
         }
-        else document.getElementById(`porcentaje${i}`).value = (((document.getElementById(`peso${i}`).value / pesoHarina.value)) * 100).toFixed(2);
+        else document.getElementById(`porcentaje${i}`).value = parseInt((((document.getElementById(`peso${i}`).value / pesoHarina.value)) * 100));
         }
     }
 }

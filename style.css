@@ -1,10 +1,19 @@
 body {
   font-family: "Lato", sans-serif !important;
-  background-color: rgb(236, 236, 236) !important;
+  background-color: rgb(42, 42, 42) !important;
+  color: white;
   font-size: 16px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+tr {
+  border-color: rgb(49, 49, 49) !important;
+}
+
+tr:hover {
+  background-color: rgb(49, 49, 49) !important;
 }
 
 main {
@@ -12,6 +21,8 @@ main {
 }
 
 table {
+  width: 80%;
+  background-color: rgb(54, 54, 54);
   table-layout: auto;
   margin: 4rem 0 2rem 0 !important;
   border-radius: 5px;
@@ -33,11 +44,16 @@ a {
 
 input {
   font-size: 1em !important;
+  color: white;
   display: inline !important;
 }
 
 .float-right {
   float: right !important;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 th,
@@ -53,6 +69,12 @@ td {
 .botonDelete {
   font-size: 1rem !important;
   font-weight: bold !important;
+  margin-top: 0.6rem !important;
+  margin-left: 2rem;
+}
+
+.head {
+  text-align: right;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -66,6 +88,11 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
   max-width: 100px;
+  text-align: right;
+  float: right;
+}
+.porcentaje-span {
+  float: right;
 }
 
 input[type="text"] {
@@ -89,12 +116,12 @@ input[type="text"] {
   p,
   ul,
   h3,
+  .total-weight,
   #añadirIngrediente {
     margin: 1rem !important;
   }
 
   .botonDelete {
-    position: relative;
     top: 5px;
     height: 30px !important;
     width: 25px !important;
@@ -109,5 +136,11 @@ input[type="text"] {
 
   footer {
     margin-top: 3rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  table {
+    width: 80% !important;
   }
 }
