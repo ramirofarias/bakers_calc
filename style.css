@@ -8,6 +8,11 @@ body {
   flex-direction: column;
 }
 
+li {
+  list-style-type: disc !important;
+  margin-left: 2em !important;
+}
+
 tr {
   border-color: rgb(49, 49, 49) !important;
 }
