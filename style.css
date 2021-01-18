@@ -42,6 +42,10 @@ a {
   color: rgb(126, 126, 126) !important;
 }
 
+a:hover {
+  color: rgb(230, 230, 230);
+}
+
 input {
   font-size: 1em !important;
   color: white;
@@ -118,9 +122,12 @@ input[type="text"] {
   p,
   ul,
   h3,
-  .total-weight,
   #añadirIngrediente {
     margin: 1rem !important;
+  }
+
+  .total-weight {
+    margin-left: 1rem !important;
   }
 
   .botonDelete {
