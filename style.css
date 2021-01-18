@@ -138,6 +138,13 @@ input[type="text"] {
     text-align: center !important;
     padding: 0 5px !important;
   }
+  input {
+    font-size: 14px !important;
+  }
+
+  .porcentaje-span {
+    font-size: 14px !important;
+  }
 
   input[type="number"].porcentaje {
     max-width: 50px;
