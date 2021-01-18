@@ -33,13 +33,14 @@ function añadirIngrediente(){
     let nuevoPorcentaje = document.createElement("input");
         nuevoPorcentaje.id = `porcentaje${id}`;
         nuevoPorcentaje.placeholder = "%";
-        nuevoPorcentaje.className = "validate";
+        nuevoPorcentaje.className = "validate porcentaje";
         nuevoPorcentaje.type ="number";
 
     let span = document.createElement("span");
         span.innerText = "%";
+        span.className = "%"
 
-    var botonDelete = document.createElement("button");
+    let botonDelete = document.createElement("button");
         botonDelete.innerText = "X";
         botonDelete.className = "botonDelete float-right btn-small waves-effect waves-light red darken-3";
         botonDelete.id = `botonDelete${id}`;

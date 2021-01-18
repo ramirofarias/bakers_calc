@@ -21,8 +21,18 @@ footer {
   bottom: 0;
 }
 
+.footer-copyright {
+  color: rgb(126, 126, 126) !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+a {
+  color: rgb(126, 126, 126) !important;
+}
+
 input {
-  font-size: 14pt !important;
+  font-size: 1em !important;
   display: inline !important;
 }
 
@@ -41,7 +51,7 @@ td {
 }
 
 .botonDelete {
-  font-size: 10px !important;
+  font-size: 1rem !important;
   font-weight: bold !important;
 }
 
@@ -61,4 +71,43 @@ input[type="number"] {
 input[type="text"] {
   -moz-appearance: textfield;
   max-width: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100% !important;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  h3 {
+    margin-left: 1rem !important;
+  }
+
+  p,
+  ul,
+  h3,
+  #añadirIngrediente {
+    margin: 1rem !important;
+  }
+
+  .botonDelete {
+    position: relative;
+    top: 5px;
+    height: 30px !important;
+    width: 25px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+    padding: 0 5px !important;
+  }
+
+  input[type="number"].porcentaje {
+    max-width: 40px;
+  }
+
+  footer {
+    margin-top: 3rem;
+  }
 }
