@@ -23,7 +23,7 @@ main {
 table {
   width: 80%;
   background-color: rgb(54, 54, 54);
-  table-layout: auto;
+  table-layout: fixed;
   margin: 4rem 0 2rem 0 !important;
   border-radius: 5px;
 }
@@ -69,12 +69,18 @@ td {
 .botonDelete {
   font-size: 1rem !important;
   font-weight: bold !important;
-  margin-top: 0.6rem !important;
-  margin-left: 2rem;
 }
 
 .head {
   text-align: right;
+}
+
+.alignright {
+  text-align: right;
+}
+
+.head-boton {
+  width: 10% !important;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -89,10 +95,6 @@ input[type="number"] {
   -moz-appearance: textfield;
   max-width: 100px;
   text-align: right;
-  float: right;
-}
-.porcentaje-span {
-  float: right;
 }
 
 input[type="text"] {

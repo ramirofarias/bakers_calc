@@ -32,7 +32,7 @@ function añadirIngrediente(){
 
     let nuevoPorcentaje = document.createElement("input");
         nuevoPorcentaje.id = `porcentaje${id}`;
-        nuevoPorcentaje.placeholder = "%";
+        nuevoPorcentaje.placeholder = 0;
         nuevoPorcentaje.className = "validate porcentaje";
         nuevoPorcentaje.type ="number";
 
@@ -50,14 +50,17 @@ function añadirIngrediente(){
         
     let celda1 = nuevaFila.insertCell();
     let celda2 = nuevaFila.insertCell();
+        celda2.className = "alignright";
     let celda3 = nuevaFila.insertCell();
+        celda3.className = "alignright";
+    let celda4 = nuevaFila.insertCell();
+        celda4.className = "celdaPorcentaje"
 
     celda1.appendChild(nuevoIngrediente);
     celda2.appendChild(nuevoPeso);
-    celda3.appendChild(botonDelete);
-    // celda3.appendChild(span);
     celda3.appendChild(nuevoPorcentaje);
-    
+    celda3.appendChild(span);
+    celda4.appendChild(botonDelete);
 
     nuevoIngrediente.addEventListener("keyup", actualizarDatos);
     nuevoPeso.addEventListener("keyup", actualizarDatos);
