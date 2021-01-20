@@ -71,7 +71,7 @@ td {
   padding: 0.5rem 1rem 0.5rem 2rem !important;
 }
 
-#añadirIngrediente {
+.añadirIngrediente {
   margin-top: 1rem !important;
 }
 
@@ -127,7 +127,7 @@ input[type="text"] {
   p,
   ul,
   h3,
-  #añadirIngrediente {
+  .añadirIngrediente {
     margin: 1rem !important;
   }
 
